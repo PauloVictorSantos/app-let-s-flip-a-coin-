@@ -7,42 +7,21 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-
-const logo = require('./src/imgs/logo.png');
-const btnJogar = require('./src/imgs/botao_jogar.png');
-const btnSobreJogo = require('./src/imgs/sobre_jogo.png');
-const btnOutroJogo = require('./src/imgs/outros_jogos.png');
-
+import { Router, Scene } from 'react-native-router-flux';
+import Principal from './src/component/Principal';
+import SobreJogo from './src/component/SobreJogo';
+import OutrosJogos from './src/component/OutrosJogos';
+import PropTypes from 'prop-types';
 export default class App7 extends Component {
   render() {
     return (
-      <View style={styles.cenaPrincipal}>
-        <View style={styles.apresentacaoJogo}>
-          <Image source={logo} />
-          <Image source={btnJogar} />
-        </View>
-        <View style={styles.rodape}> 
-          <Image source={btnSobreJogo} />
-          <Image source={btnOutroJogo} />
-        </View>
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="principal" component={Principal} initial title="Cara ou Coroa"/>
+          <Scene key="sobrejogo" component={SobreJogo} />
+          <Scene key="outrosjogos" component={OutrosJogos} />
+        </Scene>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  cenaPrincipal:{
-    flex: 1,
-    backgroundColor: '#61BD8C'
-  },
-  apresentacaoJogo:{
-    flex: 10,
-    justifyContent: 'center',
-    aligntems: 'center'
-  },
-  rodape:{
-    flex:1,
-    justifyContent: 'space-between'
-  }
-});
