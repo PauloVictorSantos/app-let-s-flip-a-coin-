@@ -20,18 +20,22 @@ export default class Principal extends Component {
       <View style={styles.cenaPrincipal}>
         <View style={styles.apresentacaoJogo}>
           <Image source={logo} />
-          <Image source={btnJogar} />
+          <TouchableHighlight onPress={() => {
+            Actions.resultado();
+          }}>
+            <Image source={btnJogar} />
+          </TouchableHighlight>
         </View>
         <View style={styles.rodape}>
-        <TouchableHighlight onPress={()=>{
-          Actions.sobrejogo();
-        }}>
-          <Image source={btnSobreJogo} />
-          </TouchableHighlight>
-          <TouchableHighlight onPress={()=>{
-            Actions.outrojogos();
+          <TouchableHighlight onPress={() => {
+            Actions.sobrejogo();
           }}>
-          <Image source={btnOutroJogo} />
+            <Image source={btnSobreJogo} />
+          </TouchableHighlight>
+          <TouchableHighlight onPress={() => {
+            Actions.outrosjogos();
+          }}>
+            <Image source={btnOutroJogo} />
           </TouchableHighlight>
         </View>
       </View>
@@ -40,17 +44,17 @@ export default class Principal extends Component {
 }
 
 const styles = StyleSheet.create({
-  cenaPrincipal:{
+  cenaPrincipal: {
     flex: 1,
     backgroundColor: '#61BD8C'
   },
-  apresentacaoJogo:{
+  apresentacaoJogo: {
     flex: 10,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  rodape:{
-    flex:1,
+  rodape: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between'
   }
